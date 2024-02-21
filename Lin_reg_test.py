@@ -20,20 +20,15 @@ def calculate_r_squared(df):
     for i in range(len(df)):
         y_variance.append((df.iloc[i, 1] - y_mean) ** 2)
 
-    # Creates two columns in the dataframe with the x and y variances for each row
-    df['S_xx'] = x_variance
-    df['S_yy'] = y_variance
-
     # Calculate the S_xy and make it a new column in the dataframe
     covariance = []
     for i in range(len(df)):
         covariance.append((df.iloc[i, 0] - x_mean) * (df.iloc[i, 1] - y_mean))
-    df['S_xy'] = covariance
 
     # This calculates the sums for the S_xx, S_yy and S_xy columns
-    s_xx_sum = sum(df['S_xx'])
-    s_yy_sum = sum(df['S_yy'])
-    s_xy_sum = sum(df['S_xy'])
+    s_xx_sum = sum(x_variance)
+    s_yy_sum = sum(y_variance)
+    s_xy_sum = sum(covariance)
 
     # This finds the r and r squared values
     r = s_xy_sum / (math.sqrt(s_xx_sum) * math.sqrt(s_yy_sum))
