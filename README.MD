@@ -36,5 +36,5 @@ These are the squared difference between the data points and the mean of that co
 and r values along with the covariance denoted s_xy
 
 ### s_xy
-The covariance or s_xy is $`(x-x_mean)*(y-y_mean)`$. The sum of  s_xy is used along with s_xx and s_yy to find r and 
+The covariance or s_xy is $`(x-x_{mean})*(y-y_{mean})`$. The sum of  s_xy is used along with s_xx and s_yy to find r and 
 line of best fit.
