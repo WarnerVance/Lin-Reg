@@ -40,10 +40,13 @@ def calculate_r_squared(df):
     r_squared = r ** 2
     return r_squared
 print(f'Linear model {calculate_r_squared(df)}')
+df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] **2
 print(f'Squared model {calculate_r_squared(df)}')
+df = pd.read_csv("Data.csv")
 df[x_column] = 1/df[x_column]
 print(f'Inverse {calculate_r_squared(df)}')
+df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] ** (1/2)
 print(f'Square root {calculate_r_squared(df)}')
 
