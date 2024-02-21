@@ -174,3 +174,12 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+/.idea/.gitignore
+/.idea/csv-editor.xml
+/Data.csv
+/.idea/git_toolbox_prj.xml
+/.idea/Lin Reg.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/vcs.xml
