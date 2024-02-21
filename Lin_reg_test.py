@@ -39,6 +39,7 @@ def calculate_r_squared(df):
     r = s_xy_sum / (math.sqrt(s_xx_sum) * math.sqrt(s_yy_sum))
     r_squared = r ** 2
     return r_squared
+print('Here is the r squared of various transformations that happen to the data')
 print(f'Linear model {calculate_r_squared(df)}')
 df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] **2
