@@ -41,6 +41,7 @@ def calculate_r_squared(df):
 
 list_r2 = []
 list_r2_index = ["Linear", "Squared", "Inverse", "Square Root"]
+# This outputs all the data.
 print('Here is the r squared of various transformations that happen to the data')
 print(f'Linear model {calculate_r_squared(df)}')
 list_r2.append(calculate_r_squared(df))
@@ -56,5 +57,6 @@ df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] ** (1/2)
 print(f'Square root {calculate_r_squared(df)}')
 list_r2.append(calculate_r_squared(df))
+# This finds which model provides the lowest r squared value and then prints that out.
 best_fit = np.argmax(list_r2)
 print(list_r2_index[best_fit], "is the best model for fit.")
