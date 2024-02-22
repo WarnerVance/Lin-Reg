@@ -9,6 +9,8 @@ import pandas as pd
 
 df = pd.read_csv("Data.csv")
 x_column = input("Enter the x column name: ")
+
+
 def calculate_r_squared(df):
     x_mean = df.iloc[:, 0].mean()
     y_mean = df.iloc[:, 1].mean()
@@ -35,13 +37,15 @@ def calculate_r_squared(df):
     r = s_xy_sum / (math.sqrt(s_xx_sum) * math.sqrt(s_yy_sum))
     r_squared = r ** 2
     return r_squared
+
+
 list_r2 = []
 list_r2_index = ["Linear", "Squared", "Inverse", "Square Root"]
 print('Here is the r squared of various transformations that happen to the data')
 print(f'Linear model {calculate_r_squared(df)}')
 list_r2.append(calculate_r_squared(df))
 df = pd.read_csv("Data.csv")
-df[x_column] = df[x_column] **2
+df[x_column] = df[x_column] ** 2
 print(f'Squared model {calculate_r_squared(df)}')
 list_r2.append(calculate_r_squared(df))
 df = pd.read_csv("Data.csv")
