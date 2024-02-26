@@ -7,7 +7,10 @@ import pandas as pd
 # The csv must be 2 columns with column 0 being x and column y being 1
 
 df = pd.read_csv("Data.csv")
-x_column = input("Enter the x column name: ")
+print(df.iloc[0, 0])
+
+column_names = list(df.columns.values)
+x_column = column_names[0]
 
 
 def calculate_r_squared(dataframe):
