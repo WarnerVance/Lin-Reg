@@ -2,12 +2,11 @@ import math
 
 import pandas as pd
 import seaborn as sns
-from pandas import DataFrame
 
 # Inputs the data from a csv file named data.
 # The csv must be 2 columns with column 0 being x and column y being 1
 # This  programs assumes that we change the x value to linearize the data and not the y value
-df: DataFrame = pd.read_csv("Data.csv")
+df = pd.read_csv("Data.csv")
 
 x_mean = df.iloc[:, 0].mean()
 y_mean = df.iloc[:, 1].mean()
@@ -38,7 +37,7 @@ slope = s_xy_sum/s_xx_sum
 intercept = y_mean-(slope*x_mean)
 
 '''
-Find the squared error. THat is the squared difference between the actual y value 
+Find the squared error. THat is the squared difference between the actual y value
 and the y value that would be predicted using the x value, the slope, and the intercept
 '''
 # Calculate the predicted values

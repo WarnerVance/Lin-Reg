@@ -1,15 +1,15 @@
-import math
-
+import time
+start = time.process_time()
 import numpy as np
 import pandas as pd
+import math
+
 
 # Inputs the data from a csv file named data.
 # The csv must be 2 columns with column 0 being x and column y being 1
-
 df = pd.read_csv("Data.csv")
-print(df.iloc[0, 0])
 
-column_names = list(df.columns.values)
+column_names = df.columns.to_list()
 x_column = column_names[0]
 
 
@@ -66,13 +66,16 @@ current_r_squared = calculate_r_squared(df)
 print(f'Square root {current_r_squared}')
 list_r2.append(current_r_squared)
 
+
 # This finds which model provides the lowest r squared value and then prints that out.
 best_fit = np.argmax(list_r2)
 print(list_r2_index[best_fit], "is the best model for fit.")
 
+print(f'Elapsed time: {time.process_time()-start}')
+
 print("0. Exit Program, 1.Square data, 2. Take the reciprocal (inverse), 3. Square root")
 transform = int(input("How would you like to transform the data "))
-df = pd.read_csv("Data.csv")
+df = pd.read_csv("Data1.csv")
 if transform == 0:
     exit(0)
 elif transform == 1:
@@ -84,5 +87,5 @@ elif transform == 3:
 else:
     exit(1)
 
-df.to_csv("Data.csv", index=False)
+df.to_csv("Data1.csv", index=False)
 exit(0)
