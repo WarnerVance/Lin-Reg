@@ -14,6 +14,10 @@ like of the slope of the line of best fit, r value, r squared value, and sum of 
 The third file is graph.png which will contain a scatterplot of the inputted data with the line of best fit. 
 4. Done!
 
+# Lin_reg_test.py
+This program tests various transformations that can be done on your dataset and compares their $`r^2`$ values to find which
+one is lowest. You can then chose to transform your Data.csv file to fit which ever transformation you choose
+
 # Explanation of Stats values
 ### r
 r is the correlation coefficient which measured how correlated two datasets are. It goes from -1 to 1 with a higher absolute
