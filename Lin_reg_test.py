@@ -45,8 +45,9 @@ list_r2 = []
 list_r2_index = ["Linear", "Squared", "Inverse", "Square Root"]
 # This outputs all the data.
 print('Here is the r squared of various transformations that happen to the data')
-print(f'Linear model {calculate_r_squared(df)}')
-list_r2.append(calculate_r_squared(df))
+current_r_squared = calculate_r_squared(df)
+print(f'Linear model {current_r_squared}')
+list_r2.append(current_r_squared)
 
 df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] ** 2
