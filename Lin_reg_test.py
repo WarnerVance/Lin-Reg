@@ -1,8 +1,10 @@
+import math
 import time
-start = time.process_time()
+
 import numpy as np
 import pandas as pd
-import math
+
+start = time.process_time()
 
 
 # Inputs the data from a csv file named data.
