@@ -76,7 +76,7 @@ print(f'Elapsed time: {time.process_time()-start}')
 
 print("0. Exit Program, 1.Square data, 2. Take the reciprocal (inverse), 3. Square root")
 transform = int(input("How would you like to transform the data "))
-df = pd.read_csv("Data1.csv")
+df = pd.read_csv("Data.csv")
 if transform == 0:
     exit(0)
 elif transform == 1:
@@ -88,5 +88,5 @@ elif transform == 3:
 else:
     exit(1)
 
-df.to_csv("Data1.csv", index=False)
+df.to_csv("Data.csv", index=False)
 exit(0)
