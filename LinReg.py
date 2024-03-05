@@ -1,5 +1,4 @@
 import math
-
 import pandas as pd
 import seaborn as sns
 
@@ -54,7 +53,6 @@ df['Squared Error'] = squared_error
 df['S_xx'] = x_variance
 df['S_yy'] = y_variance
 df['S_xy'] = covariance
-
 # This is the sum of the squared error
 SSE = sum(df['Squared Error'])
 
