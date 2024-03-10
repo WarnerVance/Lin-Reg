@@ -15,57 +15,53 @@ column_names = df.columns.to_list()
 x_column = column_names[0]
 
 
-def calculate_r_squared(dataframe):
-    x_mean = dataframe.iloc[:, 0].mean()
-    y_mean = dataframe.iloc[:, 1].mean()
+def calculate_r_squared(dataframe, x_idx, y_idx):
+    column_names = dataframe.columns.to_list()
+    x_column = column_names[x_idx]
+    y_column = column_names[y_idx]
+    x_mean = dataframe[x_column].mean()
+    y_mean = dataframe[y_column].mean()
 
     # This calculates the S_xx and S_yy. I
-    x_variance = []
-    y_variance = []
-    for i in range(len(dataframe)):
-        x_variance.append((dataframe.iloc[i, 0] - x_mean) ** 2)
-    for i in range(len(dataframe)):
-        y_variance.append((dataframe.iloc[i, 1] - y_mean) ** 2)
+    x_variance = pd.Series((dataframe[x_column] - x_mean) ** 2)
+    y_variance = pd.Series((dataframe[y_column] - y_mean) ** 2)
 
     # Calculate the S_xy
-    covariance = []
-    for i in range(len(dataframe)):
-        covariance.append((dataframe.iloc[i, 0] - x_mean) * (dataframe.iloc[i, 1] - y_mean))
+    covariance = pd.Series((dataframe[x_column] - x_mean) * (dataframe[y_column] - y_mean))
 
     # This calculates the sums for the S_xx, S_yy and S_xy columns
-    s_xx_sum = sum(x_variance)
-    s_yy_sum = sum(y_variance)
-    s_xy_sum = sum(covariance)
+    s_xx_sum = x_variance.sum()
+    s_yy_sum = y_variance.sum()
+    s_xy_sum = covariance.sum()
 
     # This finds the r and r squared values
     r = s_xy_sum / (math.sqrt(s_xx_sum) * math.sqrt(s_yy_sum))
     r_squared = r ** 2
     return r_squared
 
-
 list_r2 = []
 list_r2_index = ["Linear", "Squared", "Inverse", "Square Root"]
 # This outputs all the data.
 print('Here is the r squared of various transformations that happen to the data')
-current_r_squared = calculate_r_squared(df)
+current_r_squared = calculate_r_squared(df, 0, 1)
 print(f'Linear model {current_r_squared}')
 list_r2.append(current_r_squared)
 
 df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] ** 2
-current_r_squared = calculate_r_squared(df)
+current_r_squared = calculate_r_squared(df, 0, 1)
 print(f'Squared model {current_r_squared}')
 list_r2.append(current_r_squared)
 
 df = pd.read_csv("Data.csv")
 df[x_column] = 1 / df[x_column]
-current_r_squared = calculate_r_squared(df)
+current_r_squared = calculate_r_squared(df, 0, 1)
 print(f'Inverse {current_r_squared}')
 list_r2.append(current_r_squared)
 
 df = pd.read_csv("Data.csv")
 df[x_column] = df[x_column] ** (1 / 2)
-current_r_squared = calculate_r_squared(df)
+current_r_squared = calculate_r_squared(df, 0, 1)
 print(f'Square root {current_r_squared}')
 list_r2.append(current_r_squared)
 
