@@ -56,4 +56,5 @@ output_data = (x_mean, y_mean, r, r_squared, slope, intercept, SSE, s_xx_sum, s_
 df_output_data = pd.Series(output_data, index=output_idx)
 df_output_data.to_csv('Exported_Stats.csv')
 # Exits the program
-exit(0)
+exit(0) 
+

@@ -1,10 +1,6 @@
 import math
-import time
-
 import numpy as np
 import pandas as pd
-
-start = time.process_time()
 
 
 # Inputs the data from a csv file named data.
@@ -70,8 +66,6 @@ list_r2.append(current_r_squared)
 best_fit = np.argmax(list_r2)
 print(list_r2_index[best_fit], "is the best model for fit.")
 
-print(f'Elapsed time: {time.process_time()-start}')
-
 print("0. Exit Program, 1.Square data, 2. Take the reciprocal (inverse), 3. Square root")
 transform = int(input("How would you like to transform the data "))
 df = pd.read_csv("Data.csv")
@@ -87,4 +81,4 @@ else:
     exit(1)
 
 df.to_csv("Data.csv", index=False)
-exit(0)
+
