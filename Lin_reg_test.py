@@ -9,8 +9,7 @@ df = pd.read_csv("Data.csv")
 
 column_names = df.columns.to_list()
 x_column = column_names[0]
-
-
+y_column = column_names[1]
 def calculate_r_squared(dataframe, x_idx, y_idx):
     column_names = dataframe.columns.to_list()
     x_column = column_names[x_idx]
@@ -21,10 +20,8 @@ def calculate_r_squared(dataframe, x_idx, y_idx):
     # This calculates the S_xx and S_yy. I
     x_variance = pd.Series((dataframe[x_column] - x_mean) ** 2)
     y_variance = pd.Series((dataframe[y_column] - y_mean) ** 2)
-
     # Calculate the S_xy
     covariance = pd.Series((dataframe[x_column] - x_mean) * (dataframe[y_column] - y_mean))
-
     # This calculates the sums for the S_xx, S_yy and S_xy columns
     s_xx_sum = x_variance.sum()
     s_yy_sum = y_variance.sum()
