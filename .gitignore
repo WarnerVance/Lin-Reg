@@ -189,3 +189,4 @@ cython_debug/
 /Exported_Data.csv
 /Exported_Stats.csv
 /graph.png
+.idea
