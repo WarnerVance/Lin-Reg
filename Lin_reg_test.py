@@ -59,7 +59,7 @@ print(f'Square root {current_r_squared}')
 list_r2.append(current_r_squared)
 
 
-# This finds which model provides the lowest r squared value and then prints that out.
+# This finds which model provides the highest r squared value and then prints that out.
 best_fit = np.argmax(list_r2)
 print(list_r2_index[best_fit], "is the best model for fit.")
 
