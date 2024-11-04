@@ -10,7 +10,7 @@ df = pd.read_csv("Data.csv")
 x_mean = df.iloc[:, 0].mean()
 y_mean = df.iloc[:, 1].mean()
 # TODO: Update the readme file with more instructions.
-# This calculates the S_xx and S_yy. I
+# This calculates the S_xx and S_yy.
 column_names = df.columns.to_list()
 x_column = column_names[0]
 y_column = column_names[1]
@@ -40,6 +40,8 @@ df['Predicted Y'] = slope*df[x_column] + intercept
 df['Squared Error'] = (df[y_column] - df['Predicted Y']) ** 2
 # This is the sum of the squared error
 SSE = df['Squared Error'].sum()
+MSE = SSE / df.shape[0]
+RSME = math.sqrt(MSE)
 
 # This creates a plot with a line of best fit then exports it as graph.png
 graph = sns.regplot(data=df, x=df.iloc[:, 0], y=df.iloc[:, 1], ci=None)
@@ -51,8 +53,8 @@ df.to_csv('Exported_Data.csv', index=False)
 
 # Export the collected stats summaries as another csv
 output_idx = ('X_Mean', 'Y_Mean', 'R', 'R Squared',
-              'Slope', 'Intercept', 'SSE', 'S_xx sum', 'S_yy sum', 'S_xy Sum', "N")
-output_data = (x_mean, y_mean, r, r_squared, slope, intercept, SSE, s_xx_sum, s_yy_sum, s_xy_sum, df.shape[0])
+              'Slope', 'Intercept', 'SSE', 'S_xx sum', 'S_yy sum', 'S_xy Sum', "N", "MSE", "RSME")
+output_data = (x_mean, y_mean, r, r_squared, slope, intercept, SSE, s_xx_sum, s_yy_sum, s_xy_sum, df.shape[0], MSE, RSME)
 df_output_data = pd.Series(output_data, index=output_idx)
 df_output_data.to_csv('Exported_Stats.csv')
 # Exits the program
