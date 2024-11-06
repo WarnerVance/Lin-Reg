@@ -34,6 +34,13 @@ An r squared of 1 means that all the datapoints are on the line of best fit.
 SSE is the sum of the squared errors. In this case error means the distance between the recorded datapoint and the datapoint
 predicted by the line of best fit. This value found for each data point, squared, then summed to find the SSE. 
 
+### MSE
+MSE is the mean square error. You get it be dividing SSE by the number of data points
+
+#### RMSE
+
+RMSE is the root mean square error. You get it by square rooting MSE. Unlike MSE it is not in square units. 
+
 ### s_xx and s_yy
 These are the squared difference between the data points and the mean of that column (x for s_xx or y for s_yy).This is called the 
 **variance**. The sum of the variances for x and y are found in exported_stats.csv. These sums are used to find the line of best fit,

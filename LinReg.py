@@ -40,10 +40,10 @@ df['Predicted Y'] = slope*df[x_column] + intercept
 df['Squared Error'] = (df[y_column] - df['Predicted Y']) ** 2
 # This is the sum of the squared error
 SSE = df['Squared Error'].sum()
-MSE = SSE / df.shape[0]
+MSE = df['Squared Error'].mean()
 RSME = math.sqrt(MSE)
 
-# This creates a plot with a line of best fit then exports it as graph.png
+# This creates a plot with a line of best fit then exports it as pzgraph.png
 graph = sns.regplot(data=df, x=df.iloc[:, 0], y=df.iloc[:, 1], ci=None)
 fig = graph.get_figure()
 fig.savefig("graph.png")
@@ -58,5 +58,5 @@ output_data = (x_mean, y_mean, r, r_squared, slope, intercept, SSE, s_xx_sum, s_
 df_output_data = pd.Series(output_data, index=output_idx)
 df_output_data.to_csv('Exported_Stats.csv')
 # Exits the program
+print(f"RSME: {RSME}, Slope: {slope}, Intercept: {intercept}")
 exit(0) 
-
