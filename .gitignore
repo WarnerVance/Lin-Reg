@@ -176,7 +176,6 @@ cython_debug/
 
 /.idea/.gitignore
 /.idea/csv-editor.xml
-/Data.csv
 /.idea/git_toolbox_prj.xml
 /.idea/Lin Reg.iml
 /.idea/misc.xml
@@ -190,3 +189,4 @@ cython_debug/
 /Exported_Stats.csv
 /graph.png
 .idea
+DataPrimary.csv
