@@ -4,8 +4,8 @@ import seaborn as sns
 
 # Inputs the data from a csv file named data.
 # The csv must be 2 columns with column 0 being x and column y being 1
-# This  programs assumes that we change the x value to linearize the data and not the y value
-df = pd.read_csv("Data.csv")
+start_time = time.time()
+df = pd.read_csv("df_train.csv")
 
 x_mean = df.iloc[:, 0].mean()
 y_mean = df.iloc[:, 1].mean()
@@ -28,8 +28,8 @@ r = s_xy_sum/(math.sqrt(s_xx_sum)*math.sqrt(s_yy_sum))
 r_squared = r ** 2
 
 # Find the slope and intercept
-slope = s_xy_sum/s_xx_sum
-intercept = y_mean-(slope*x_mean)
+slope = s_xy_sum/s_xx_sum # This is the slope of the line of best fit
+intercept = y_mean-(slope*x_mean) # This is the y-intercept of the line of best fit
 
 '''
 Find the squared error. THat is the squared difference between the actual y value
