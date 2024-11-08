@@ -26,7 +26,7 @@ one increases the other decreases). If r is positive it implies a direct relatio
 the other.
 
 ### r squared
-r squared is just the r value from before squared.  is the proportion of the variation in the dependent variable that is 
+r squared is just the r value from before squared. It is the proportion of the variation in the dependent variable that is 
 predictable from the independent variable(s). Essentially it tells you how well your line of best fit explains the data. 
 An r squared of 1 means that all the datapoints are on the line of best fit.
 

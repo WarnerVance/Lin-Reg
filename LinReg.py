@@ -4,7 +4,6 @@ import seaborn as sns
 
 # Inputs the data from a csv file named data.
 # The csv must be 2 columns with column 0 being x and column y being 1
-start_time = time.time()
 df = pd.read_csv("df_train.csv")
 
 x_mean = df.iloc[:, 0].mean()
