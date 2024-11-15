@@ -2,6 +2,8 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 
+let flaskProcess;
+
 function createWindow() {
     const win = new BrowserWindow({
         width: 800,
@@ -18,7 +20,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
     // Start the Flask server
-    exec('python ../path/to/your/app.py', (err, stdout, stderr) => {
+    flaskProcess = exec('python ../path/to/your/app.py', (err, stdout, stderr) => {
         if (err) {
             console.error(`Error starting Flask server: ${err}`);
             return;
@@ -39,5 +41,11 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
+    }
+});
+
+app.on('quit', () => {
+    if (flaskProcess) {
+        flaskProcess.kill();
     }
 });
