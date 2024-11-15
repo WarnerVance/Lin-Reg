@@ -183,3 +183,4 @@ cython_debug/
 /graph.png
 DataPrimary.csv
 node_modules
+dist
