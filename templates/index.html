@@ -8,10 +8,10 @@
 <body>
     <h1>Linear Regression Prediction</h1>
     <p>This is a simple web app that demonstrates how to use a linear regression model to predict a value based on a single input feature.</p>
-    <p> Please enter the name of a csv file in the proper directory</p>
-    <form action="/predict" method="post">
-        <label for="data">Enter data:</label>
-        <input type="text" id="data" name="data">
+    <p>Please upload a CSV file for analysis:</p>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file">Upload CSV:</label>
+        <input type="file" id="file" name="file" accept=".csv">
         <input type="submit" value="Predict">
     </form>
 </body>

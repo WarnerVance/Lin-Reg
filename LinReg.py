@@ -5,9 +5,7 @@ import seaborn as sns
 # Inputs the data from a csv file named data.
 # The csv must be 2 columns with column 0 being x and column y being 1
 
-def predict(data_path):
-    df = pd.read_csv(data_path)
-    
+def predict(df):
     x_mean = df.iloc[:, 0].mean()
     y_mean = df.iloc[:, 1].mean()
     
