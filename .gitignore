@@ -182,3 +182,4 @@ cython_debug/
 /Exported_Stats.csv
 /graph.png
 DataPrimary.csv
+node_modules
