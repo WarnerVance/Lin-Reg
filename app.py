@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import pandas as pd
+import math
 import LinReg  # Assuming your existing code is in linreg.py
 import os
 from flask import Flask, flash, request, redirect, url_for
