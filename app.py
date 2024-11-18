@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template
 import pandas as pd
-import linreg  # Assuming your existing code is in linreg.py
+import LinReg  # Assuming your existing code is in linreg.py
 import os
 from flask import Flask, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
@@ -29,7 +29,7 @@ def predict():
         df = pd.read_csv(file)
         
         # Process the DataFrame using your existing code
-        result_df = linreg.predict(df)  # Replace with your actual function call that processes the DataFrame
+        result_df = LinReg.predict(df)  # Replace with your actual function call that processes the DataFrame
         
         # Convert DataFrame to HTML
         result_html = result_df.to_html(classes='data', header="true")
