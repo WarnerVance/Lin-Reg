@@ -1,8 +1,11 @@
 import pandas as pd
 from flask import Flask, request
 from flask import render_template
+from fontTools.merge.util import current_time
+
 import LinReg  # Assuming your existing code is in linreg.py
 import Lin_reg_test
+import time
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'csv'}
 
@@ -16,6 +19,7 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    current_time = time.time()
     if 'file' not in request.files:
         return "No file part"
     
@@ -32,13 +36,14 @@ def predict():
         
         # Convert DataFrame to HTML
         result_html = result_df.to_html(classes='data', header="true")
-        
-        return render_template('result.html', result=result_html)
+        elapsed_time = time.time() - current_time
+        return render_template('result.html', result=result_html, time = elapsed_time)
     else:
         return "Invalid file format. Please upload a CSV file."
 
 @app.route('/test', methods=['POST'])
 def test():
+    current_time = time.time()
     if 'file' not in request.files:
         return "No file part"
 
@@ -52,7 +57,8 @@ def test():
 
         result2_df = Lin_reg_test.find_best_r2(df)
         result2_html = result2_df.to_html(classes='data', header="true")
-        return render_template('result.html', result=result2_html)
+        elapsed_time = time.time() - current_time
+        return render_template('result.html', result=result2_html, time = elapsed_time)
 
 
 if __name__ == '__main__':
