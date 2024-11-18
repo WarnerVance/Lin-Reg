@@ -184,3 +184,5 @@ cython_debug/
 DataPrimary.csv
 node_modules
 dist
+!/images/
+/images/
