@@ -5,7 +5,7 @@ The data input csv must be two columns with the column 0 being the x data and co
 has only been tested with changing the x values (column 0) to linearize the data. The top row of the csv will be the two
 variable names. I don't know if it would work if you choose to linearize by changing the y data. If you want to mess with that 
 please let me know how it works
-
+coolio
 ## To use:
 1. Place a file called Data.csv in the same directory as LinReg.py (follow the directions above regarding the csv file)
 2. Run LinReg.py
