@@ -25,7 +25,7 @@ def predict():
     if file.filename == '':
         return "No selected file"
     
-    if file and file.filename.endswith('.csv'):
+    if file and (file.filename.endswith('.csv') or file.filename.endswith('.CSV')):
         df = pd.read_csv(file)
         
         # Process the DataFrame using your existing code
