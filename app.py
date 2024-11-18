@@ -37,5 +37,23 @@ def predict():
     else:
         return "Invalid file format. Please upload a CSV file."
 
+@app.route('/test', methods=['POST'])
+def test():
+    if 'file' not in request.files:
+        return "No file part"
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return "No selected file"
+
+    if file and (file.filename.endswith('.csv') or file.filename.endswith('.CSV')):
+        df  = pd.read_csv(file)
+
+        result2_df = Lin_reg_test.find_best_r2(df)
+        result2_html = result2_df.to_html(classes='data', header="true")
+        return render_template('result.html', result=result2_html)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
