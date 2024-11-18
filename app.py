@@ -1,10 +1,7 @@
-from flask import Flask, request, render_template
 import pandas as pd
-import math
+from flask import Flask, request
+from flask import render_template
 import LinReg  # Assuming your existing code is in linreg.py
-import os
-from flask import Flask, flash, request, redirect, url_for
-from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'csv'}
@@ -15,6 +12,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
