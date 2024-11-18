@@ -2,7 +2,7 @@ import pandas as pd
 from flask import Flask, request
 from flask import render_template
 import LinReg  # Assuming your existing code is in linreg.py
-
+import Lin_reg_test
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'csv'}
 
