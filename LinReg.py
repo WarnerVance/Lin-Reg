@@ -1,6 +1,3 @@
-import math
-import pandas as pd
-import seaborn as sns
 
 # Inputs the data from a csv file named data.
 # The csv must be 2 columns with column 0 being x and column y being 1
