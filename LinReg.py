@@ -1,9 +1,7 @@
-# Inputs the data from a csv file named data.
-# The csv must be 2 columns with column 0 being x and column y being 1
 import math
 import pandas as pd
 
-def predict(df):
+def predict(df): # Input a dataframe with 2 columns, Outputs a dataframe with the results
     x_mean = df.iloc[:, 0].mean()
     y_mean = df.iloc[:, 1].mean()
     
@@ -27,7 +25,7 @@ def predict(df):
     df['Predicted Y'] = slope*df[x_column] + intercept
     df['Squared Error'] = (df[y_column] - df['Predicted Y']) ** 2
     SSE = df['Squared Error'].sum()
-    MSE = df['Squared Error'].mean()
+    MSE = SSE / df.shape[0]
     RSME = math.sqrt(MSE)
 
     output_idx = ('X_Mean', 'Y_Mean', 'R', 'R Squared',

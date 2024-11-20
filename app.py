@@ -1,9 +1,8 @@
 import pandas as pd
 from flask import Flask, request
 from flask import render_template
-from fontTools.merge.util import current_time
 
-import LinReg  # Assuming your existing code is in linreg.py
+import LinReg  
 import Lin_reg_test
 import time
 UPLOAD_FOLDER = '/path/to/the/uploads'
@@ -12,13 +11,13 @@ ALLOWED_EXTENSIONS = {'csv'}
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/')
+@app.route('/') # If we're not doing anything special it just returns the index.html
 def home():
     return render_template('index.html')
 
 
 @app.route('/predict', methods=['POST'])
-def predict():
+def predict(): # This function is called when the user uploads a file and presses the predict button 
     current_time = time.time()
     if 'file' not in request.files:
         return "No file part"
@@ -32,7 +31,7 @@ def predict():
         df = pd.read_csv(file)
         
         # Process the DataFrame using your existing code
-        result_df = LinReg.predict(df)  # Replace with your actual function call that processes the DataFrame
+        result_df = LinReg.predict(df)  # Calls the predict function from linreg.py
         
         # Convert DataFrame to HTML
         result_html = result_df.to_html(classes='data', header="true")
